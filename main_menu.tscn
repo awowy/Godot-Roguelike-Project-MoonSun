@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuv0exiq50n4h"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_ekucq"]
+[ext_resource type="Texture2D" uid="uid://cc803k026xsnx" path="res://Art/v1.1 dungeon crawler 16x16 pixel pack/mainmenback.jpg" id="2_n1mbj"]
+[ext_resource type="FontFile" uid="uid://btotd7c8sev3l" path="res://PixelifySans-VariableFont_wght.ttf" id="2_vd0dt"]
+[ext_resource type="PackedScene" uid="uid://cmq67q1dv32ex" path="res://fade_transition.tscn" id="4_40p1j"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_ekucq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(240, 135)
+scale = Vector2(0.759494, 0.718085)
+texture = ExtResource("2_n1mbj")
+
+[node name="Button_manager" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Button_manager"]
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_vd0dt")
+theme_override_font_sizes/font_size = 10
+text = "Hello :D, i am Anony - 074 welcome to my small game
+this game is used for Tugas Kecil 1 Clan Programming
+this is a simple roguelike dungeon game i made with Godot
+just wanna make this main menu to credit these awesome tutorials and assets that i have used for my game.
+(PLAYLIST)
+https://www.youtube.com/watch?v=axMNUTmFEDA&list=PL2-ArCpIQtjELkyLKec8BaVVCeunuHSK9
+(ASSETS)
+https://o-lobster.itch.io/simple-dungeon-crawler-16x16-pixel-pack
+
+have fun :D
+
+
+
+
+
+
+											press space to continue"
+autowrap_mode = 2
+
+[node name="Label2" type="Label" parent="Button_manager"]
+visible = false
+layout_mode = 0
+offset_right = 480.0
+offset_bottom = 270.0
+theme_override_fonts/font = ExtResource("2_vd0dt")
+theme_override_font_sizes/font_size = 10
+text = "CONTROLS
+
+W, A, S, D to move
+Left Click for Primary Attack
+Right Click for Secondary Attack
+Hold Left Click for Charged Attack
+Scroll Mouse to Change Weapons"
+autowrap_mode = 2
+
+[node name="fade_transition" parent="." instance=ExtResource("4_40p1j")]
+visible = false
+
+[node name="fade_timer" type="Timer" parent="fade_transition"]
+
+[connection signal="timeout" from="fade_transition/fade_timer" to="." method="_on_fade_timer_timeout"]
